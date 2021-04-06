@@ -112,7 +112,7 @@ try {
 
 function division2(a, b) {
     try {
-        if (b == 0) {
+        if (b == 0){
             throw "Le 2ème paramètre  doit être != 0 !";
         }
     }
@@ -195,7 +195,7 @@ console.log(str.test("baac")); // Affiche false
 // La valeur doit contenir 4 chiffres obligatoirement
 var p = "2345";
 var str = /^([0-9]){4}$/;
-if (p.match(str)) {
+if(p.match(str)){
     console.log("yes");
 } else {
     console.log("No");
@@ -206,16 +206,18 @@ if (p.match(str)) {
 var p = "Jean_Baton06";
 var str = /^([0-9a-zA-Z_]){6,20}$/;
 
-if (p.match(str)) {
+if(p.match(str)){
     console.log("yes");
 } else {
     console.log("No");
 }
 
-function ValidateEmail(mail) {
-    if (/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(mail)) {
-        return (true)
-    }
+function ValidateEmail(mail) 
+{
+ if (/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(mail))
+  {
+    return (true)
+  }
     console.log("You have entered an invalid email address!")
     return (false)
 }
@@ -223,3 +225,6 @@ function ValidateEmail(mail) {
 var res = ValidateEmail("mysitetest.com");
 console.log(res);
 
+// https://regexlib.com/Search.aspx?k=email&AspxAutoDetectCookieSupport=1
+
+//damienmonchaty@hotmail.fr

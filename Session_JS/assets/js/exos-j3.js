@@ -94,10 +94,5 @@ function sayHelloEveryXSeconds(x){
 
 sayHelloEveryXSeconds(5);
 
-// Il est possible d'annuler l'execution de la fonction callback setInterval()
+// Il est possible d'annuler l'execution de la fonction callback setTimeout()
 clearInterval(interval);
-
-
-
-
-

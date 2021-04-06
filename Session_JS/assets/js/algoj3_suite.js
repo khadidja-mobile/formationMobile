@@ -1,57 +1,46 @@
-// Objet
-
-// Qu'est ce qu'un objet ?
-
-// c 'est un ensemble de 
-
-// - attributs (variable, champs) : clé + valeur
+// objet
+// qu'est-ce qu'un objet ?
+// c'est un ensemble d'attributs ou propriétés 
+//(variable, champ) : clé + valeur
+// - attributs (varibale, champs)
 // - méthodes : fonctions
-
-// un objet est caractérisé par des accolades
 var obj = {
     nom: "Wick",
     prenom: "John"
 };
-
-// Recupere l'attribut nom de l'objet obj et l'affiche en console
+// Récupère l'attribut nom de l'objet et l'affiche en console
 console.log(obj.nom);
-// ou
+// ou 
 console.log(obj["prenom"]);
-
-// Un objet est iterable avec for...in
-for (var elt in obj) {
+// un objet est itérable avec for ...in
+for(var elt in obj){
     console.log(elt + " : " + obj[elt]);
 }
 
-// on cree un nouvel objet ou on cree une nouvelle instance obj de type Objet
+// on crée un nouvel objet ou une nvlle instance obj de type object
 var obj = new Object();
 obj.nom = "wick";
 obj.prenom = "John";
 
-// copie un objet
-var obj2 = obj;
-
-// copie un objet avec ...(spread operator) permettant de faire des copies d'objets, variables
-// Ici, la variable d'origine et sa copie sont totalement independantes
-// var obj2 = {...obj};
-// ou
+// copie un objet avec ... (spread operator) permettant de faire des 
+// copies d'objets, variables, etc
+// ici, la var d'origine et sa copie sont totalement indépendante
+//var obj2 = {...obj}; ou
 var obj2 = Object.assign({}, obj);
 
+//var obj2 = obj;
 obj2.nom = "Doe";
+console.log(obj.nom); // Wick
+console.log(obj2.nom); // Doe
 
-console.log(obj.nom); // Affiche Wick
-
-console.log(obj2.nom); // Affiche Doe
-
-// Pour transformer un objet en chaine de caracteres
+// Pour transformer un objet en chaine de caractères
+//var perso = { nom: 'Wick', }
 var str = JSON.stringify(obj);
 console.log(str);
 
-// Pour transformer une chaine de caractere en objet
 var p = JSON.parse(str);
 console.log(p.nom + " " + p.prenom);
 
-// Ajout d'une méthode dans lobjet obj
 var obj = {
     nom: "Wick",
     prenom: "John",
@@ -59,83 +48,66 @@ var obj = {
         console.log("Bonjour " + this.nom);
     }
 };
-
-// Appel de la methode direbonjour a partir de obj de type Object
+// appel de la méthode dire bonjour à partirde objet de type object
 obj.direBonjour();
 
-// Constructeurs
+// Les consctructeurs un
 
-// Moule pour creer des objets
-// Tous les objets sont de type Object
-// Et si on veut creer un modele d'objet, on peut utiliser les constructeurs
+// moulepour créer des objets de// tous les objets sont de type Object
+// et si on veut créer un modele d'objet, on peut utiliser 
+// les consctructeurs 
 
-// var Personne = function(nom, prenom, age){
-//     this.nom = nom;
-//     this.prenom = prenom;
-//     this.age = age;
-//     this.afficherNomComplet = function(){
-//         console.log(this.nom + " " + this.prenom);
-//     }
-// }
-
-// OU
-
-class Personne {
-    nom;
-    prenom;
-    age;
-
+/*var Personne = function (nom, prenom, age) {
+    this.nom = nom; 
+    this.prenom = prenom;
+    this.age = age;
+}*/
+class Personne{
+    nom; prenom; age;
     constructor(nom, prenom, age) {
-        this.nom = nom;
+        this.nom = nom; 
         this.prenom = prenom;
         this.age = age;
+        this.afficherNomComplet = function(){ 
+            console.log(this.nom + " " + this.prenom);};
     }
-
-    // Getter : Accesseur => recupere les valeur
-    getNom() {
-        return this.nom;
-    }
-
-    // Setter : mutateur : modifier les valeurs de l'attibut par la valeur passe en parametre
-    setNom(nom) {
-        this.nom = nom;
-    }
-
-    afficherNomComplet() {
+    afficherNomComplet(){ 
         return this.nom + " " + this.prenom;
     }
 
+    // getteurs : accesseur => recupère les valeurs
+    getNom() { return this.nom;}
+    // setter : mutateur : modifier les valeurs de l'attribut
+    setNom(nom) { return this.nom = nom ;}
 }
-
-// Cree une nouvelle instance de lobjet Personne à partir de constructeur
-perso = new Personne("Wick", "John", 35);
-// Appel de la methode setNom(nom) pour modifier la valeur de nom dans l'instance perso
-perso.setNom("Doe");
-// Affiche la nom de l'instance perso par la methode getNom()
+// cree nvlle instance de l'obj perso à partir de consctruteur
+perso = new Personne();
+// appelle la méthode setNom pour modif
+perso.setNom("Killy");
+// affiche le nom de l'instance perso de la méthode getNom()
 console.log(perso.getNom());
+//console.log(perso.afficherNomComplet);
 
-perso2 = new Personne(35, "Wick", "John");
-console.log(perso2.nom);
+personne = new Personne("IKHLEF", "Khadidja", 35); 
+personne2 = new Personne(35, "wick", "Khadidja"); 
+console.log(personne);
+console.log(personne2.nom);
 
-// Erreur, Impossible de lui ajouter un nouvel attribut de cette facon
-// Personne.rue = 0;
+// ereur, impossible 
+Personne.rue = 0; 
 
-// Utiliser le prototype
+// utiliser le prototype
 Personne.prototype.rue = 0;
+// mise en place du getter  / accesseur
+Personne.prototype.getRue = function() { return this.rue; }
 
-// Mise en place du Getter / Accesseur
-Personne.prototype.getRue = function () {
-    return this.rue;
-}
-
-// Mise en place du Setter / Mutateur
-Personne.prototype.setRue = function (rue) {
+// mise en pace du seter / mutateur /
+Personne.prototype.setRue = function(rue){
     this.rue = rue;
 }
 
 perso.setRue("RUE1");
 console.log(perso.getRue());
-
 
 // Copier un tableau
 
@@ -180,6 +152,3 @@ let numbers2 = [1, 2, 300, -1, 0, -100];
 // avec l'opérateur spread, et le tableau qui represente l'ensemble de nos arguments 
 // avec une seule ligne de code.
 console.log(Math.min(...numbers2));
-
-
-

@@ -30,8 +30,9 @@ console.log(r);
 function convert(min) {
     return min * 60;
 }
-
+// ES6 = EcmaScript 
 // const convert = (min) => min * 60;
+// (min) : parenthèse => paramètre;
 
 var r = convert(2);
 console.log(r);
@@ -44,7 +45,7 @@ var somme = array.reduce(
         return sum + elem;
     });
 
-var somme = array.reduce((sum, elem) => sum + elem);
+var somme = array.reduce((sum, elem) => sum + elem); // const ?
 
 console.log(somme);
 
@@ -129,9 +130,10 @@ const recherche = (x, t) => {
 /* Indique si un élément est la note maximale */
 
 const max = (t) => {
-    var a = Math.max(...t);
+    var a = Math.max(...t); // ???? sytaxe js ...tableau
     return console.log("La note maximale est : " + a);
 };
+
 
 /* appels aux procédures définies ci-dessus */
 
